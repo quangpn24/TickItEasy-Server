@@ -1,0 +1,18 @@
+[submodule "tiez-api-gateway"]
+	path = tiez-api-gateway
+	url = https://github.com/quangpn24/tiez-api-gateway.git
+[submodule "tiez-user-service"]
+	path = tiez-user-service
+	url = https://github.com/quangpn24/tiez-user-service.git
+[submodule "tiez-event-service"]
+	path = tiez-event-service
+	url = https://github.com/quangpn24/tiez-event-service.git
+[submodule "tiez-booking-service"]
+	path = tiez-booking-service
+	url = https://github.com/quangpn24/tiez-booking-service.git
+[submodule "tiez-search-service"]
+	path = tiez-search-service
+	url = https://github.com/quangpn24/tiez-search-service.git
+[submodule "tiez-notification-service"]
+	path = tiez-notification-service
+	url = https://github.com/quangpn24/tiez-notification-service.git
