@@ -1,0 +1,47 @@
+services:
+  user-db:
+    platform: linux/amd64
+    image: postgres:15-alpine3.18
+    environment:
+      POSTGRES_USER: ${USER_DB_USER}
+      POSTGRES_PASSWORD: ${USER_DB_PASS}
+      POSTGRES_DB: ${USER_DB_NAME}
+    ports:
+      - "${USER_DB_PORT}:5432"
+    networks:
+      - tieznet
+    volumes:
+      - tiez-user-db:/var/lib/postgresql
+  event-db:
+    platform: linux/amd64
+    image: postgres:15-alpine3.18
+    environment:
+      POSTGRES_USER: ${EVENT_DB_USER}
+      POSTGRES_PASSWORD: ${EVENT_DB_PASS}
+      POSTGRES_DB: ${EVENT_DB_NAME}
+    ports:
+      - "${EVENT_DB_PORT}:5432"
+    networks:
+      - tieznet
+    volumes:
+      - tiez-event-db:/var/lib/postgresql
+  booking-db:
+    platform: linux/amd64
+    image: postgres:15-alpine3.18
+    environment:
+      POSTGRES_USER: ${BOOKING_DB_USER}
+      POSTGRES_PASSWORD: ${BOOKING_DB_PASS}
+      POSTGRES_DB: ${BOOKING_DB_NAME}
+    ports:
+      - "${BOOKING_DB_PORT}:5432"
+    networks:
+      - tieznet
+    volumes:
+      - tiez-booking-db:/var/lib/postgresql
+volumes:
+  tiez-user-db:
+  tiez-event-db:
+  tiez-booking-db:
+
+networks:
+  tieznet:
