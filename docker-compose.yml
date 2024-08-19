@@ -38,10 +38,31 @@ services:
       - tieznet
     volumes:
       - tiez-booking-db:/var/lib/postgresql
+  redis:
+    platform: linux/amd64
+    image: bitnami/redis:7.2.5
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASS}
+    ports:
+      - "${REDIS_PORT}:6379"
+    networks:
+      - tieznet
+    volumes:
+      - redis-db:/bitnami/redis/data
+  redisinsight:
+    platform: linux/amd64
+    image: redislabs/redisinsight:2.54
+    ports:
+      - "${REDIS_INSIGHT_PORT}:5540"
+    networks:
+      - tieznet
+    depends_on:
+      - redis
 volumes:
   tiez-user-db:
   tiez-event-db:
   tiez-booking-db:
+  redis-db:
 
 networks:
   tieznet:
